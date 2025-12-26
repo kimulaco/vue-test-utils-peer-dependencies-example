@@ -1,5 +1,32 @@
-# Vue 3 + TypeScript + Vite
+# @vue/test-utils peerDependencies Issue Example
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This repository demonstrates an issue where `@vue/test-utils` cannot find `@vue/compiler-dom` in a pnpm environment with strict hoist settings.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Problem
+
+When using `@vue/test-utils` in a pnpm workspace with `hoist: false` and `shamefullyHoist: false`, the following error occurs:
+
+```
+Error: Cannot find module '@vue/compiler-dom'
+Require stack:
+- node_modules/.pnpm/@vue+test-utils@2.4.6/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js
+```
+
+You can verify this error in CI: [Failed CI run](https://github.com/kimulaco/vue-test-utils-peer-dependencies-example/actions/runs/20521381439/job/58957183490)
+
+## Reproduction
+
+```bash
+pnpm install
+pnpm test
+```
+
+## Expected Solution
+
+Adding `@vue/compiler-dom` to `@vue/test-utils`'s `peerDependencies` would allow pnpm to properly resolve the dependency.
+
+## Workaround
+
+You can use `packageExtensions` in `pnpm-workspace.yaml` to manually override peerDependencies. This workaround is demonstrated in the [`solution` branch](https://github.com/kimulaco/vue-test-utils-peer-dependencies-example/tree/refs/heads/solution), where the error does not occur.
+
+See the [successful CI run](https://github.com/kimulaco/vue-test-utils-peer-dependencies-example/actions/runs/20521490248/job/58957444615) for the solution branch.
