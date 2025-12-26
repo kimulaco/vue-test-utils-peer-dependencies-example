@@ -1,1 +1,4 @@
 useNodeVersion: 24.12.0
+
+hoist: false
+shamefullyHoist: false
