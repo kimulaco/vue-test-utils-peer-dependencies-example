@@ -3,9 +3,9 @@ useNodeVersion: 24.12.0
 hoist: false
 shamefullyHoist: false
 
-# packageExtensions:
-#   "@vue/test-utils":
-#     peerDependencies:
-#       "@vue/compiler-dom": "3.x"
-#       "@vue/server-renderer": "3.x"
-#       "vue": "3.x"
+packageExtensions:
+  "@vue/test-utils":
+    peerDependencies:
+      "@vue/compiler-dom": "3.x"
+      "@vue/server-renderer": "3.x"
+      "vue": "3.x"
