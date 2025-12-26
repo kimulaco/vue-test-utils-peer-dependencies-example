@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+packageExtensionsChecksum: sha256-s2hD6mIrzGoO0CPl6UUdfG+w7JziYM+lHnocsKdeBwk=
+
 importers:
 
   .:
@@ -23,7 +25,7 @@ importers:
         version: 4.0.16(vitest@4.0.16)
       '@vue/test-utils':
         specifier: ^2.4.6
-        version: 2.4.6
+        version: 2.4.6(@vue/compiler-dom@3.5.26)(@vue/server-renderer@3.5.26(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       '@vue/tsconfig':
         specifier: ^0.8.1
         version: 0.8.1(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))
@@ -502,6 +504,10 @@ packages:
 
   '@vue/test-utils@2.4.6':
     resolution: {integrity: sha512-FMxEjOpYNYiFe0GkaHsnJPXFHxQ6m4t8vI/ElPGpMWxZKpmRvQ33OIrvRXemy6yha03RxhOlQuy+gZMC3CQSow==}
+    peerDependencies:
+      '@vue/compiler-dom': 3.x
+      '@vue/server-renderer': 3.x
+      vue: 3.x
 
   '@vue/tsconfig@0.8.1':
     resolution: {integrity: sha512-aK7feIWPXFSUhsCP9PFqPyFOcz4ENkb8hZ2pneL6m2UjCkccvaOhC/5KCKluuBufvp2KzkbdA2W2pk20vLzu3g==}
@@ -1437,9 +1443,12 @@ snapshots:
 
   '@vue/shared@3.5.26': {}
 
-  '@vue/test-utils@2.4.6':
+  '@vue/test-utils@2.4.6(@vue/compiler-dom@3.5.26)(@vue/server-renderer@3.5.26(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
+      '@vue/compiler-dom': 3.5.26
+      '@vue/server-renderer': 3.5.26(vue@3.5.26(typescript@5.9.3))
       js-beautify: 1.15.4
+      vue: 3.5.26(typescript@5.9.3)
       vue-component-type-helpers: 2.2.12
 
   '@vue/tsconfig@0.8.1(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))':
